@@ -1,11 +1,11 @@
 <?php
 session_start();
 if (!isset($_SESSION['registered'])){
-    header('Location: http://localhost/Register.php');
+    header('Location: /register');
     //echo "not registered";
 }
 if (!isset($_SESSION['logged'])){
-    header('Location: http://localhost/Login.php');
+    header('Location: /login');
     //echo "not logged";
 }
 ?>
@@ -22,7 +22,7 @@ if (!isset($_SESSION['logged'])){
 session_destroy();
 echo "
 <p>Uspesne odhlasen</p>
-<a href='Register.php'>Registrovat</a>
+<a href='register.php'>Registrovat</a>
 "
 ?>
 </body>
