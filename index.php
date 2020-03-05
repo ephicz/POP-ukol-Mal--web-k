@@ -4,6 +4,9 @@ $url =  $_SERVER['REQUEST_URI'];
 
 
 switch ($url){
+    case '/':
+        $filename = 'register.php';
+        break;
     case '/register':
         $filename = 'register.php';
         break;

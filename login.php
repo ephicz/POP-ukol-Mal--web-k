@@ -1,12 +1,12 @@
 <?php
 session_start();
-if (isset($_SESSION['logged'])){
-    if ($_SESSION['logged']){
+if (isset($_SESSION['logged'])) {
+    if ($_SESSION['logged']) {
         header('Location: /content');
         //echo "logged";
     }
 }
-if (!isset($_SESSION['registered'])){
+if (!isset($_SESSION['registered'])) {
     header('Location: /register');
     //echo "not registered";
 }
@@ -22,34 +22,31 @@ if (!isset($_SESSION['registered'])){
 <body>
 
 
-
 <?php
-$jmeno = $_POST['jmeno'] && null;
-$heslo = $_POST['heslo'] && null;
+$jmenoLogin = $_POST['jmenoLogin'] ?? null;
+$hesloLogin = $_POST['hesloLogin'] ?? null;
+$logged = false;
 
-if (is_string($jmeno)){
-    $registered = true;
+if ($jmenoLogin == $_SESSION['jmeno']) {
+    if ($hesloLogin == $_SESSION['heslo']) {
+        $logged = true;
+        echo "uspesne prihlasen";
+        echo "<a href='/content'>Content</a>";
+        if (is_bool($logged)) {
+            $_SESSION['logged'] = $logged;
+        }
+    } else {
+        echo "spatny heslo";
+        echo "<a href='/logout'>Forgot pass</a>";
+    }
 } else {
-    $registered = false;
+    echo "spatny jmeno";
+    echo "<a href='/logout'>Forgot name</a>";
 }
-
-if (is_string($jmeno)){
-    $_SESSION['jmeno'] = $jmeno;
-}
-
-if (is_string($heslo)){
-    $_SESSION['heslo'] = $heslo;
-}
-
-if (is_bool($registered)){
-    $_SESSION['registered'] = $registered;
-}
-
-echo $jmeno;
 
 ?>
 
-<form class="" action="content.php" method="post">
+<form class="" method="post">
     <input type="text" name="jmenoLogin" value="" placeholder="Jmenoo" required>
     <input type="password" name="hesloLogin" value="" placeholder="Heslo" required>
     <input type="submit" name="" value="Prihlasit se">

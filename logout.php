@@ -22,7 +22,7 @@ if (!isset($_SESSION['logged'])){
 session_destroy();
 echo "
 <p>Uspesne odhlasen</p>
-<a href='register.php'>Registrovat</a>
+<a href='/register'>Registrovat</a>
 "
 ?>
 </body>
