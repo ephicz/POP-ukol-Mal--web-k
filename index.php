@@ -2,12 +2,9 @@
 
 $url =  $_SERVER['REQUEST_URI'];
 
-
 switch ($url){
-    case '/':
-        $filename = 'register.php';
-        break;
     case '/register':
+    case '/':
         $filename = 'register.php';
         break;
     case '/login':
@@ -23,5 +20,4 @@ switch ($url){
         $filename = '404.php';
 }
 
-// TODO always initialize $filename
 require $filename;

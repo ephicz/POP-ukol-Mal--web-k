@@ -1,0 +1,13 @@
+.wrap {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-family: Rubik;
+    font-weight: bold;
+    font-size: large;
+    margin: auto;
+}
+
+.main {
+    font-size: xx-large;
+}

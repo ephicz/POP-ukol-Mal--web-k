@@ -1,0 +1,23 @@
+* {
+    font-family: Rubik;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 5vh;
+}
+
+p {
+    text-align: center;
+    color: gray;
+}
+
+.wrap {
+    width: 40vw;
+    margin: auto;
+    padding-top: 5vh;
+}
+
+.reg {
+    color: black;
+}
