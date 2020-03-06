@@ -20,7 +20,7 @@ if (isset($_SESSION['registered'])) {
 </head>
 <body>
 <h1>Mega dobra stranka</h1>
-    <p>Registrace | <a href='/login'>Login</a></p>
+<p>Registrace | <a href='/login'>Login</a> | <a href="/content">Content</a> | <a href='/logout'>Logout</a></p>
 <div class="wrap">
     <form method="post">
         <div class="form-group">
