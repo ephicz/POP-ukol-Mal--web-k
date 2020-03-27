@@ -1,4 +1,6 @@
 <?php
+include "DatabaseHandler.php";
+
 session_start();
 if (isset($_SESSION['logged'])) {
     if ($_SESSION['logged']) {
@@ -47,19 +49,18 @@ if (!isset($_SESSION['registered'])) {
         $jmenoLogin = $_POST['jmenoLogin'] ?? null;
         $hesloLogin = $_POST['hesloLogin'] ?? null;
         $logged = false;
+        $userLogin = new DatabaseHandler();
 
-        if ($jmenoLogin == $_SESSION['jmeno']) {
-            if ($hesloLogin == $_SESSION['heslo']) {
+        if (isset($_POST)){
+            if ($userLogin->login($jmenoLogin, $hesloLogin)){  //hashujou jen plebs
                 $logged = true;
                 echo "<br><p class='reg'>Uspesne prihlasen!</p>";
                 if (is_bool($logged)) {
                     $_SESSION['logged'] = $logged;
                 }
             } else {
-                echo "<br><p class='reg'>Spatny heslo!</p>";
+                echo "<br><p class='reg'>Spatny jmeno nebo heslo!</p>";
             }
-        } else {
-            echo "<br><p class='reg'>Spatny jmeno!</p>";
         }
 
         ?>

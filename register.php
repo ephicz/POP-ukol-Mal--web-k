@@ -1,4 +1,6 @@
 <?php
+include 'DatabaseHandler.php';
+
 session_start();
 if (isset($_SESSION['registered'])) {
     if ($_SESSION['registered']) {
@@ -6,6 +8,7 @@ if (isset($_SESSION['registered'])) {
         //echo "registered";
     }
 }
+
 ?>
 <html>
 <head>
@@ -22,7 +25,7 @@ if (isset($_SESSION['registered'])) {
 <h1>Mega dobra stranka</h1>
 <p>Registrace | <a href='/login'>Login</a> | <a href="/content">Content</a> | <a href='/logout'>Logout</a></p>
 <div class="wrap">
-    <form method="post">
+    <form method="post" action="">
         <div class="form-group">
             <label for="exampleInputEmail1">Jmeno</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="jmeno"
@@ -43,23 +46,22 @@ if (isset($_SESSION['registered'])) {
         $jmeno = $_POST['jmeno'] ?? null;
         $heslo = $_POST['heslo'] ?? null;
 
-        if (is_string($jmeno)) {
-            if (is_string($heslo)) {
-                $registered = true;
-                echo "<br><p class='reg'>Uspesne registrovan!</p>";
+        if(isset($_POST)){
+            if (is_string($jmeno)) {
+                if (is_string($heslo)) {
+                    $user = new DatabaseHandler();
+                    if ($user->checkRegister($jmeno)){
+                        $registered = true;
+                        echo $user->register($jmeno, $heslo); // nehashujem sefe podporujem hackery
+                    } else {
+                        echo "<br><p class='reg'>Jmeno zabrano</p>";
+                    }
+                } else {
+                    $registered = false;
+                }
             } else {
                 $registered = false;
             }
-        } else {
-            $registered = false;
-        }
-
-        if (is_string($jmeno)) {
-            $_SESSION['jmeno'] = $jmeno;
-        }
-
-        if (is_string($heslo)) {
-            $_SESSION['heslo'] = $heslo;
         }
 
         if (is_bool($registered)) {
