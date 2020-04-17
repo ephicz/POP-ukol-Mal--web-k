@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87802732-2050-4e4a-a075-dadb270e9c85" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/404/404.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/content.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login/login.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logout/logout.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/register/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/404.css" beforeDir="false" afterPath="$PROJECT_DIR$/404/404.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/404/404.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/DatabaseHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content.php" beforeDir="false" afterPath="$PROJECT_DIR$/content/content.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/logout/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register/register.phtml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +59,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Honza\PhpstormProjects\malejWebik\content" />
+      <recent name="C:\Users\Honza\PhpstormProjects\malejWebik\404" />
       <recent name="C:\Users\Honza\PhpstormProjects\malejWebik" />
+      <recent name="C:\Users\Honza\PhpstormProjects\malejWebik\logout" />
+      <recent name="C:\Users\Honza\PhpstormProjects\malejWebik\login" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -75,6 +92,7 @@
       <workItem from="1583444242359" duration="4687000" />
       <workItem from="1585269610257" duration="8845000" />
       <workItem from="1585526010528" duration="37000" />
+      <workItem from="1587081565832" duration="3689000" />
     </task>
     <task id="LOCAL-00001" summary="zpracovani formu na stejny page, zlepseni routingu, dodani funkctnosti">
       <created>1583445883440</created>

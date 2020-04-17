@@ -3,21 +3,21 @@
 $url =  $_SERVER['REQUEST_URI'];
 
 switch ($url){
-    case '/register':
+    case '/register/':
     case '/':
-        $filename = 'register.php';
+        $filename = 'register/register.php';
         break;
-    case '/login':
-        $filename = 'login.php';
+    case '/login/':
+        $filename = 'login/login.php';
         break;
-    case '/content':
-        $filename = 'content.php';
+    case '/content/':
+        $filename = 'content/content.php';
         break;
-    case '/logout':
-        $filename = 'logout.php';
+    case '/logout/':
+        $filename = 'logout/logout.php';
         break;
     default:
-        $filename = '404.php';
+        $filename = '404/404.php';
 }
 
 require $filename;

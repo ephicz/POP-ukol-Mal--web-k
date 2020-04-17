@@ -1,18 +1,3 @@
-<?php
-include "DatabaseHandler.php";
-
-session_start();
-if (isset($_SESSION['logged'])) {
-    if ($_SESSION['logged']) {
-        header('Location: /content');
-        //echo "logged";
-    }
-}
-if (!isset($_SESSION['registered'])) {
-    header('Location: /register');
-    //echo "not registered";
-}
-?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -21,49 +6,31 @@ if (!isset($_SESSION['registered'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="general.css">
+    <link rel="stylesheet" type="text/css" href="../general.css">
     <title>Register</title>
 </head>
 <body>
 <h1>Mega dobra stranka</h1>
-<p><a href='/register'>Registrace</a> | Login | <a href="/content" Content | <a href='/logout'>Logout</a></p>
+<p>Registrace | <a href='/login'>Login</a> | <a href="/content">Content</a> | <a href='/logout'>Logout</a></p>
 <div class="wrap">
-    <form method="post">
+    <form method="post" action="">
         <div class="form-group">
             <label for="exampleInputEmail1">Jmeno</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="jmenoLogin"
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="jmeno"
                    value="" placeholder="Jmenoo" required>
             <small id="emailHelp" class="form-text text-muted">(Jmeno nebo prezdivka)</small>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="hesloLogin" value=""
+            <input type="password" class="form-control" id="exampleInputPassword1" name="heslo" value=""
                    placeholder="Heslo" required>
         </div>
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Zapamatovat</label>
+            <label class="form-check-label" for="exampleCheck1">Souhlasim s ukradenim dat</label>
         </div>
-        <button type="submit" class="btn btn-primary">Prihlasit</button>
-        <?php
-        $jmenoLogin = $_POST['jmenoLogin'] ?? null;
-        $hesloLogin = $_POST['hesloLogin'] ?? null;
-        $logged = false;
-        $userLogin = new DatabaseHandler();
-
-        if (isset($_POST)){
-            if ($userLogin->login($jmenoLogin, $hesloLogin)){  //hashujou jen plebs
-                $logged = true;
-                echo "<br><p class='reg'>Uspesne prihlasen!</p>";
-                if (is_bool($logged)) {
-                    $_SESSION['logged'] = $logged;
-                }
-            } else {
-                echo "<br><p class='reg'>Spatny jmeno nebo heslo!</p>";
-            }
-        }
-
-        ?>
+        <button type="submit" class="btn btn-primary">Registrovat</button>
+        <br><p class='reg'><?php $message ?></p>
     </form>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
